@@ -1,4 +1,4 @@
-<img width="754" height="391" alt="image" src="https://github.com/user-attachments/assets/2252aa68-bad1-4782-9821-32aa21504134" /># ChatRooM
+# ChatRooM
 [English](#) | [中文(简体)](https://github.com/pdnode-team/ChatRooM/blob/main/README_ZH.md)
 
 Simple chatroom powered by a Python-based server with a fully functional web GUI client.
