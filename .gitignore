@@ -10,6 +10,8 @@
 !.yarn/releases
 !.yarn/versions
 Server/data/*
+Server/log/*
+Server/permissions/*
 
 # testing
 /coverage
