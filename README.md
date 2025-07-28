@@ -11,8 +11,9 @@ Simple chatroom powered by a Python-based server with a fully functional web GUI
 **Client**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
 2. `cd ./ChatRooM`
-3. `pnpm dev`
-4. Access`localhost:3000`via your web browser
+3. `npm install`
+4. `pnpm dev`
+5. Access`localhost:3000`via your web browser
 
 **Server**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
