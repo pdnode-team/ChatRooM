@@ -3,5 +3,5 @@
 
 Simple chatroom powered by a Python-based server with a fully functional web GUI client.
 
-## How to install
+## How to deploy
 **Sorry, ChatRooM is still in development and not ready for use.**
