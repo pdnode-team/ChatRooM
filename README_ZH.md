@@ -9,10 +9,11 @@
 ### 使用源代码部署Dev版本
 **客户端**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
-2. `pnpm dev`
-3. 访问`localhost:3000`
+2. `cd ./ChatRooM`
+3. `pnpm dev`
+4. 浏览器访问`localhost:3000`
 
 **服务端**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
-2. `cd ./Server`
+2. `cd ./ChatRooM/Server`
 3. `python ./main.py`
