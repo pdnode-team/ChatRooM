@@ -11,8 +11,9 @@
 **客户端**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
 2. `cd ./ChatRooM`
-3. `pnpm dev`
-4. 浏览器访问`localhost:3000`
+3. `npm install`
+4. `pnpm dev`
+5. 浏览器访问`localhost:3000`
 
 **服务端**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
