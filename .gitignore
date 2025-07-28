@@ -9,7 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-Server_service/data/*
+Server/data/*
 
 # testing
 /coverage
