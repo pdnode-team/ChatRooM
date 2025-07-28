@@ -5,12 +5,14 @@
 
 ## 安装教程
 **抱歉，ChatRooM还处于早期开发阶段因此未投入正式使用**
+
 ### 使用源代码部署Dev版本
 **客户端**
-1.`git clone https://github.com/pdnode-team/ChatRooM.git`
-2.`pnpm dev`
-3.访问`localhost:3000`
+1. `git clone https://github.com/pdnode-team/ChatRooM.git`
+2. `pnpm dev`
+3. 访问`localhost:3000`
+4. 
 **服务端**
-1.`git clone https://github.com/pdnode-team/ChatRooM.git`
-2.`cd ./Server`
-3.`python ./main.py`
+1. `git clone https://github.com/pdnode-team/ChatRooM.git`
+2. `cd ./Server`
+3. `python ./main.py`
