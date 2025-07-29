@@ -27,4 +27,11 @@ body {
 
 .appbar-home {
   background: #1976d2;
+  display: flex;
+  justify-content: center;
+  height: 8vh
+}
+
+.logo-icon {
+  margin-left: 10px;
 }
