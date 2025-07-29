@@ -8,6 +8,16 @@ init(autoreset=True)
 
 class Command:
     def user(self,args):
+        # data/User/{xxx}/
+        # .prconfig (权限)
+        # .register (注册信息)
+        # .group (聊天群组)
+        def lackerror():
+            print(Fore.RED+f"[user] Error: No args for user.")
+            print(Fore.YELLOW+f"[user] Inf: You can visit WIKI to get how to use \'user\' command.")
+        if len(args) == 0:
+            lackerror()
+            return
         Inf=json.loads(Mf.readtext("./data/User/.inf"))
         def all():
             tmp=0
@@ -16,7 +26,22 @@ class Command:
                     tmp+=1
                     print(f"sj  {Inf[sj]["PG"]}") # PG:Permission groups
             print(f"\ntotal:{tmp} valid user.")
-        Clists={"all":all}
+        def getinf():
+            if len(args) == 1:
+                lackerror()
+                return
+            if args[1] in Inf:
+                print(Fore.GREEN+f"[user] Information for user:{args[1]}")
+                print(f"Permissions:{json.loads(Mf.readtext(f"./data/User/{args[1]}/.prconfig"))}")
+                print(f"RegisterInf:{json.loads(Mf.readtext(f"./data/User/{args[1]}/.register"))}")
+                print(f"InGroup    :{json.loads(Mf.readtext(f"./data/User/{args[1]}/.group"))}")
+            else:
+                print(Fore.YELLOW+f"[user] Error: Not found {args[1]}.")
+        Clists={"all":all,"getinf":getinf}
+        if args[0] in Clists:
+            Clists[args[0]]()
+        else:
+            print(Fore.RED+f"[user] Error: Invalid \'{args[0]}\'")
         
     def stop(self,args=None):
         Server.join()
@@ -65,6 +90,7 @@ def NewConfig():
     Mf.create("./data/Group")
     Mf.create("./data/Public")
     Mf.create("./data/Robot")
+    Mf.create("./permissions")
     Mf.create("./log")
     Mf.writetext("./data/User/.inf")
     time.sleep(1)
