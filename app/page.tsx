@@ -43,7 +43,7 @@ export default function Home() {
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
         <div className='menu-home-ph-container'/>
         <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
-          <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '3vh'}}/>
+          <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '30px'}}/>
           <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
         </Box>
         <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
