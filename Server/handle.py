@@ -20,6 +20,11 @@ Sfg : dict=None
 Users=None
 app=Flask(__name__)
 
+@app.before_request
+def before_request():
+    global Mf, Cback, Sfg, Users
+    Users=json.loads(Mf.readtext("./data/User/.inf"))
+
 @app.route('/',methods=['GET'])
 def home():
     return jsonify({"message":"Chatroom.\nhttps://github.com/pdnode-team/ChatRooM"})
