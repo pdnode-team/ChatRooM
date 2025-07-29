@@ -41,6 +41,7 @@ export default function Home() {
       <title>ChatRooM V2</title>
       <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
+        <div className='menu-home-ph-container'/>
         <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
           <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh'}}/>
           <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
