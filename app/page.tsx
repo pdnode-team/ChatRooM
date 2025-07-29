@@ -9,6 +9,11 @@ import TextField from '@mui/material/TextField';
 
 export default function Home() {
   return (
-    <title>ChatRooM V2</title>
+    <div>
+      <title>ChatRooM V2</title>
+      <AppBar position="static">
+
+      </AppBar>
+    </div>
   );
 }
