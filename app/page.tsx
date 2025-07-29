@@ -11,28 +11,25 @@ import Link from 'next/link';
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
   interface Palette {
-    ochre: Palette['primary'];
+    white: Palette['primary'];
   }
 
   interface PaletteOptions {
-    ochre?: PaletteOptions['primary'];
+    white?: PaletteOptions['primary'];
   }
 }
 
 //更新组件的颜色选项来包括其他颜色
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    ochre: true;
+    white: true;
   }
 }
 
 const theme = createTheme({
   palette: {
-    ochre: {
-      main: '#E3D026',
-      light: '#E9DB5D',
-      dark: '#A29415',
-      contrastText: '#242105',
+    white: {
+      main: '#ffffffff',
     },
   },
 });
@@ -45,8 +42,8 @@ export default function Home() {
         <AppBar position="static" className='appbar-home'>
           <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
           <Box sx={{ display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '1%', top: '0.9vh'}}>
-            <SearchIcon sx={{color: 'action.active', mr: 1, my: 0.5}} />
-          <TextField color='ochre' id="joined-server-search" label="Search" variant="standard"/>
+            <SearchIcon sx={{color: "#ffffff", mr: 1, my: 0.5}}/>
+          <TextField color='white' id="joined-server-search" label="Search" variant="standard"/>
         </Box>
         </AppBar>
       </div>
