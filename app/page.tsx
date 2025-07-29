@@ -1,6 +1,5 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -40,13 +39,13 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <title>ChatRooM V2</title>
-      <div className='appbar-home'>
+      <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
         <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-          <SearchIcon sx={{color: "#ffffff", mr: 1, my: 0}}/>
+          <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh'}}/>
           <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
         </Box>
-        <IconButton><AccountCircleIcon/></IconButton>
+        <IconButton><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
       </div>
     </ThemeProvider>
   );
