@@ -48,6 +48,9 @@ export default function Home() {
         </Box>
         <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
       </div>
+      <div className='home-my-server-list-container'>
+        <a style={{fontSize: '4vh', marginLeft: '10px'}}>My Server</a>
+      </div>
     </ThemeProvider>
   );
 }

@@ -29,7 +29,8 @@ body {
   background: #1976d2;
   display: flex;
   align-items: center;
-  height: 8vh
+  height: 8vh;
+  /*border-radius: 0 0 10px 10px;   还没想好到底用不用*/
 }
 
 .logo-icon {
@@ -38,4 +39,9 @@ body {
 
 .menu-home-ph-container {
   width: 69vw;
+}
+
+.home-my-server-list-container {
+  margin-left: 25vw;
+  margin-top: 7vh;
 }
