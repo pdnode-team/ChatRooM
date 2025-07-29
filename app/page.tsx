@@ -1,4 +1,4 @@
-'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL GET MESSED UP
+'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Image from 'next/image';
 import Link from 'next/link';
 
+//别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
   interface Palette {
     ochre: Palette['primary'];
@@ -18,7 +19,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-// Update the Button's color options to include an ochre option
+//更新组件的颜色选项来包括其他颜色
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     ochre: true;
@@ -45,7 +46,7 @@ export default function Home() {
           <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
           <Box sx={{ display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '1%', top: '0.9vh'}}>
             <SearchIcon sx={{color: 'action.active', mr: 1, my: 0.5}} />
-          <TextField color='#ffffff' id="joined-server-search" label="Search" variant="standard"/>
+          <TextField color='ochre' id="joined-server-search" label="Search" variant="standard"/>
         </Box>
         </AppBar>
       </div>
