@@ -28,7 +28,7 @@ body {
 .appbar-home {
   background: #1976d2;
   display: flex;
-  justify-content: center;
+  align-items: center;
   height: 8vh
 }
 

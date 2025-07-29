@@ -1,11 +1,13 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
+import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
@@ -37,15 +39,14 @@ const theme = createTheme({
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <title>ChatRooM V2</title>
-        <AppBar position="static" className='appbar-home'>
-          <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
-          <Box sx={{ display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '1%', top: '0.9vh'}}>
-            <SearchIcon sx={{color: "#ffffff", mr: 1, my: 0.5}}/>
-          <TextField color='white' id="joined-server-search" label="Search" variant="standard"/>
+      <title>ChatRooM V2</title>
+      <div className='appbar-home'>
+        <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
+        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+          <SearchIcon sx={{color: "#ffffff", mr: 1, my: 0}}/>
+          <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
         </Box>
-        </AppBar>
+        <IconButton><AccountCircleIcon/></IconButton>
       </div>
     </ThemeProvider>
   );
