@@ -37,18 +37,40 @@ class Command:
                 print(f"InGroup    :{json.loads(Mf.readtext(f"./data/User/{args[1]}/.group"))}")
             else:
                 print(Fore.YELLOW+f"[user] Error: Not found {args[1]}.")
-        Clists={"all":all,"getinf":getinf}
+        def audit():
+            if config['application'] != "audit":
+                print(Fore.YELLOW+"[Audit] Disable audit mode.")
+                return
+            auditq=json.loads(Mf.readtext("./data/.audit"))
+            audiq2=[]
+            print("[audit] List:")
+            for i in auditq:
+                print("     "+str(i))
+                a=input("     Allow?(T/F/C)")
+                if(a.upper=='T'):
+                    handle.Reg(Mf,i)
+                elif a.upper=='F':
+                    continue
+                else:
+                    audiq2.append(i)
+            Mf.writetext("./data/.audit",audiq2)
+        def Register():
+            RegInf={}
+            RegInf['Name']=input("UserName:")
+            RegInf['password']=input("Password:")
+            handle.Reg(Mf,RegInf)
+            
+        Clists={"all":all,"getinf":getinf,"audit":audit,"register":Register}
         if args[0] in Clists:
             Clists[args[0]]()
         else:
             print(Fore.RED+f"[user] Error: Invalid \'{args[0]}\'")
         
     def stop(self,args=None):
-        Server.join()
-        print("") #nL
-        sys.exit(0)
+        print(Fore.GREEN+"[Server] Stopping...")
+        os._exit(0)
     def __init__(self):
-        self.List={"stop":self.stop}
+        self.List={"stop":self.stop,'user':self.user}
     def get(self,CI:str):
         CM=CI.split(" ")[0]
         args=CI.split(" ")
@@ -70,7 +92,6 @@ def NewConfig():
         "port":,
         "application":[public/audit/whiteonly/verify],
         "showinf":,
-        "maxlink":,
         "log":[1/0]
     }
     """
@@ -82,17 +103,16 @@ def NewConfig():
     Sconfig["port"]=int(input(Fore.BLUE+"Server Port:"))
     Sconfig["application"]=input(Fore.BLUE+"Server application way:"+Fore.YELLOW+"[public/audit/whiteonly/verify]")
     Sconfig["showinf"]=(input(Fore.BLUE+"Server showinf:"+Fore.YELLOW+"[T/F]")=="T")
-    Sconfig["maxlink"]=int(input(Fore.BLUE+"Server Maxlink:"))
     Sconfig["log"]=(input(Fore.BLUE+"Server Log"+Fore.YELLOW+"[T/F]")=="T")
     Mf.writetext("./.sconfig",json.dumps(Sconfig,ensure_ascii=False))
-    Mf.create("./data")
-    Mf.create("./data/User")
-    Mf.create("./data/Group")
-    Mf.create("./data/Public")
-    Mf.create("./data/Robot")
-    Mf.create("./permissions")
-    Mf.create("./log")
-    Mf.writetext("./data/User/.inf")
+    Mf.makedir("./data")
+    Mf.makedir("./data/User")
+    Mf.makedir("./data/Group")
+    Mf.makedir("./data/Public")
+    Mf.makedir("./data/Robot")
+    Mf.makedir("./permissions")
+    Mf.makedir("./log")
+    Mf.writetext("./data/User/.inf",json.dumps({},ensure_ascii=False))
     time.sleep(1)
     print(Fore.RED+"OK! Please restart main.py.")
     sys.exit(0)
@@ -105,10 +125,13 @@ def Load():
         print(Fore.RED+"Load config failed.\nPlease check your file.\nOr you can delete ./.Sconfig to reset.")
         sys.exit(0)
 
+def Cback(o):
+    print(o)
+
 def Create_Server():
     global Server
-    Server=threading.Thread(target=handle.run,daemon=True,args=(Mf,))
-    Server.run()
+    Server=threading.Thread(target=handle.run,daemon=True,args=(Mf,Cback))
+    Server.start()
     print("Done!")
     try:
         while(True):

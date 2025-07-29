@@ -12,6 +12,8 @@
 Server/data/*
 Server/log/*
 Server/permissions/*
+Server/.Sconfig
+Server/__pycache__
 
 # testing
 /coverage
