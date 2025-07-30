@@ -1,5 +1,5 @@
 #api server service
-import sys
+import sys,jwt,datetime,json,os
 from flask import *
 from fs.osfs import *
 from colorama import *
@@ -19,12 +19,38 @@ Cback=None
 Sfg : dict=None
 Users=None
 app=Flask(__name__)
+SECRET_KEY=os.urandom(24)
 
 @app.before_request
 def before_request():
     global Mf, Cback, Sfg, Users
-    Users=json.loads(Mf.readtext("./data/User/.inf"))
-
+    Users = json.loads(Mf.readtext("./data/User/.inf"))
+    if request.endpoint in ['home', 'login', 'register']:
+        return
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({"message": "[Server] Token missing."}), 400
+    try:
+        data = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        username = data.get('username')
+        if not username or username not in Users:
+            return jsonify({"message": "[Server] Invalid token."}), 406
+        request.username = username
+        token_permission = data.get('permission')
+        if token_permission is None or token_permission.get('login') !=1:
+            return jsonify({"message": "[Server] Permission denied."}), 403
+        local_permission = json.loads(Mf.readtext(f"./data/User/{username}/.prconfig", encoding="utf-8"))
+        if local_permission!= token_permission:
+            return jsonify({"message": "[Server] Invalid token."}), 403
+        request.permission = local_permission
+        request.reginf= json.loads(Mf.readtext(f"./data/User/{username}/.register", encoding="utf-8"))
+        if data['reginf']!= request.reginf:
+            return jsonify({"message": "[Server] Invalid token."}), 403
+        if data['exp'] < datetime.datetime.utcnow():
+            return jsonify({"message": "[Server] Token expired."}), 416
+    except Exception:
+        return jsonify({"message": "Token invalid."}), 401
+    
 @app.route('/',methods=['GET'])
 def home():
     return jsonify({"message":"Chatroom.\nhttps://github.com/pdnode-team/ChatRooM"})
@@ -43,8 +69,8 @@ def login():
         Upr=json.loads(Mf.readtext(f"./data/User/{username}/.prconfig",encoding="utf-8"))
         if Upr['login']==0:
             return jsonify({"message":"Login failed: Banned"}),403
-        session['User']={"Name":username,"PR":Upr,"reg":Uinf}
-        return jsonify({"message":"[Login] Succeed."}),200
+        token=jwt.encode({'username': username,'reginf': Uinf,'permission': Upr,'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, SECRET_KEY, algorithm='HS256')
+        return jsonify({"message":"[Login] Succeed.","token":token}),200
     return (jsonify({"message":"ErRor.ApI"}),500)
 
 @app.route('/register',methods=['POST'])
