@@ -1,5 +1,6 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
 
+import "./globals.css";
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
@@ -78,7 +79,7 @@ export default function Home() {
           <IconButton><AddIcon sx={{color: "#ffffff"}}/></IconButton>
         </Tooltip>
         <Tooltip title="Account">
-          <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+          <IconButton sx={{marginRight: '10px'}} href='/login'><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
         </Tooltip>
       </div>
       <div className='home-my-server-list-container'>

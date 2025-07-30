@@ -53,3 +53,14 @@ body {
   height: 20vh;
   min-height: 200px;
 }
+
+.login-container {
+  height: 60vh;
+  min-height: 545px;
+  width: 30vw;
+  min-width: 500px;
+  border-radius: 15px;
+  margin-left: 35vw;
+  margin-top: 10vh;
+  background: rgb(244, 244, 244);
+}
