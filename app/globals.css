@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   height: 8vh;
-  border-radius: 0 0 10px 10px;
+  /*border-radius: 0 0 10px 10px;*/
 }
 
 .logo-icon {
