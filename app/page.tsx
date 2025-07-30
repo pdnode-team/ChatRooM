@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import SearchIcon from '@mui/icons-material/Search';
+import ServerIcon from '@mui/icons-material/Dns';
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
@@ -72,8 +73,11 @@ export default function Home() {
         <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
       </div>
       <div className='home-my-server-list-container'>
-        <a style={{fontSize: '38px', marginLeft: '10px'}}>My Server</a>
-        <Card className='my-server-card' variant='outlined'>{serverCard}</Card>
+        <Box sx={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
+          <ServerIcon sx={{fontSize: '38px'}}/>
+          <a style={{fontSize: '38px', marginLeft: '10px'}}>My Server</a>
+        </Box>
+        <Card className='my-server-card' variant='outlined' sx={{backgroundColor: '#fcfcfcff'}}>{serverCard}</Card>
       </div>
     </ThemeProvider>
   );
