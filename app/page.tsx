@@ -3,6 +3,7 @@
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,6 +17,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { CardActions, Typography } from '@mui/material';
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
@@ -60,7 +62,12 @@ export default function Home() {
         <a style={{fontSize: '4vh', marginLeft: '10px'}}>My Server</a>
         <Card className='my-server-card' variant='outlined'>
           <CardContent>
+            <Typography variant='h5'>Example server</Typography>
+            <Typography>This is a server description for a example server</Typography>
           </CardContent>
+          <CardActions>
+            <Button variant='text'>Enter</Button>
+          </CardActions>
         </Card>
       </div>
     </ThemeProvider>
