@@ -53,6 +53,10 @@ export default function Home() {
       </div>
       <div className='home-my-server-list-container'>
         <a style={{fontSize: '4vh', marginLeft: '10px'}}>My Server</a>
+        <Card className='my-server-card' variant='outlined'>
+          <CardContent>
+          </CardContent>
+        </Card>
       </div>
     </ThemeProvider>
   );
