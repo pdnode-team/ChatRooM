@@ -45,6 +45,19 @@ const theme = createTheme({
   },
 });
 
+const serverCard = (
+  <React.Fragment>
+    <CardContent>
+      <Typography variant='h5'>Example server</Typography>
+      <Typography>This is a server description for an example server.</Typography>
+      <div style={{height: '3.7vh', minHeight: '35px'}}/>
+    </CardContent>
+    <CardActions>
+      <Button variant='text'>Enter</Button>
+    </CardActions>
+  </React.Fragment>
+)
+
 export default function Home() {
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
@@ -59,16 +72,8 @@ export default function Home() {
         <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
       </div>
       <div className='home-my-server-list-container'>
-        <a style={{fontSize: '4vh', marginLeft: '10px'}}>My Server</a>
-        <Card className='my-server-card' variant='outlined'>
-          <CardContent>
-            <Typography variant='h5'>Example server</Typography>
-            <Typography>This is a server description for an example server</Typography>
-          </CardContent>
-          <CardActions>
-            <Button variant='text'>Enter</Button>
-          </CardActions>
-        </Card>
+        <a style={{fontSize: '38px', marginLeft: '10px'}}>My Server</a>
+        <Card className='my-server-card' variant='outlined'>{serverCard}</Card>
       </div>
     </ThemeProvider>
   );
