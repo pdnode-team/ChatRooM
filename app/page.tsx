@@ -2,16 +2,19 @@
 
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Image from 'next/image';
+import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ServerIcon from '@mui/icons-material/Dns';
 import TextField from '@mui/material/TextField';
-import Image from 'next/image';
-import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+
 import Link from 'next/link';
 
 import '@fontsource/roboto/300.css';
@@ -68,9 +71,16 @@ export default function Home() {
         <div className='menu-home-ph-container'/>
         <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
           <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '28px'}}/>
-          <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
+          <Tooltip title="Add servers">
+            <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
+          </Tooltip>
         </Box>
-        <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+        <Tooltip title="Add Servers">
+          <IconButton><AddIcon sx={{color: "#ffffff"}}/></IconButton>
+        </Tooltip>
+        <Tooltip title="Account">
+          <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+        </Tooltip>
       </div>
       <div className='home-my-server-list-container'>
         <Box sx={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
