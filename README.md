@@ -18,6 +18,7 @@ Simple chatroom powered by a Python-based server with a fully functional web GUI
 **Server**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
 2. `cd ./ChatRooM/Server`
-3. `python ./main.py`
+3. `./main.exe`
+   *If the download is not via release, use "python ./main.py"*
 
 **We do not provide support for deployment issues of the development version from source code, but we welcome all bug reports encountered during usage.**

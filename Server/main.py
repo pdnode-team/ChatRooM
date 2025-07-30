@@ -1,8 +1,7 @@
 from fs.osfs import *
 import os,json,time,sys
 from colorama import *
-import socket,threading
-import handle
+import threading,handle
 
 init(autoreset=True)
 

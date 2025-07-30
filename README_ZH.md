@@ -18,6 +18,7 @@
 **服务端**
 1. `git clone https://github.com/pdnode-team/ChatRooM.git`
 2. `cd ./ChatRooM/Server`
-3. `python ./main.py`
+3. `./main.exe`
+   *如果下载不是通过release ,请使用"python ./main.py"*
 
 **我们不对从源代码部署开发版本时遇到的问题提供任何技术支持，但欢迎报告使用过程中所遇到的一切bug。**
