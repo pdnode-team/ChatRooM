@@ -30,6 +30,7 @@ body {
   display: flex;
   align-items: center;
   height: 8vh;
+  outline: #b4b4b4 solid 2px;
   /*border-radius: 0 0 10px 10px;*/
 }
 
