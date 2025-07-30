@@ -1,12 +1,26 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
+
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SearchIcon from '@mui/icons-material/Search';
-import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { CardActions, Typography } from '@mui/material';
 import Image from 'next/image';
+import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
+import SearchIcon from '@mui/icons-material/Search';
+import ServerIcon from '@mui/icons-material/Dns';
+import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
@@ -34,18 +48,45 @@ const theme = createTheme({
   },
 });
 
+const serverCard = (
+  <React.Fragment>
+    <CardContent>
+      <Typography variant='h5'>Example server</Typography>
+      <Typography>This is a server description for an example server.</Typography>
+      <div style={{height: '3.7vh', minHeight: '35px'}}/>
+    </CardContent>
+    <CardActions>
+      <Button variant='text'>Enter</Button>
+    </CardActions>
+  </React.Fragment>
+)
+
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <title>ChatRooM V2</title>
-        <AppBar position="static" className='appbar-home'>
-          <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
-          <Box sx={{ display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '1%', top: '0.9vh'}}>
-            <SearchIcon sx={{color: "#ffffff", mr: 1, my: 0.5}}/>
-          <TextField color='white' id="joined-server-search" label="Search" variant="standard"/>
+    <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
+      <title>ChatRooM V2</title>
+      <div className='menu-home'>
+        <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
+        <div className='menu-home-ph-container'/>
+        <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
+          <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '28px'}}/>
+          <Tooltip title="Search in joined servers">
+            <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
+          </Tooltip>
         </Box>
-        </AppBar>
+        <Tooltip title="Add Servers">
+          <IconButton><AddIcon sx={{color: "#ffffff"}}/></IconButton>
+        </Tooltip>
+        <Tooltip title="Account">
+          <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+        </Tooltip>
+      </div>
+      <div className='home-my-server-list-container'>
+        <Box sx={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
+          <ServerIcon sx={{fontSize: '38px'}}/>
+          <a style={{fontSize: '38px', marginLeft: '10px'}}>My Server</a>
+        </Box>
+        <Card className='my-server-card' variant='outlined' sx={{backgroundColor: '#fcfcfcff'}}>{serverCard}</Card>
       </div>
     </ThemeProvider>
   );

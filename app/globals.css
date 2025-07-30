@@ -25,13 +25,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.appbar-home {
+.menu-home {
   background: #1976d2;
   display: flex;
-  justify-content: center;
-  height: 8vh
+  align-items: center;
+  height: 8vh;
+  outline: #b4b4b4 solid 2px;
+  /*border-radius: 0 0 10px 10px;*/
 }
 
 .logo-icon {
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+.menu-home-ph-container {
+  width: 69vw;
+}
+
+.home-my-server-list-container {
+  margin-left: 25vw;
+  margin-top: 7vh;
+}
+
+.my-server-card {
+  width: 18vw;
+  min-width: 240px;
+  height: 20vh;
+  min-height: 200px;
 }
