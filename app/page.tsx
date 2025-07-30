@@ -63,7 +63,7 @@ export default function Home() {
         <Card className='my-server-card' variant='outlined'>
           <CardContent>
             <Typography variant='h5'>Example server</Typography>
-            <Typography>This is a server description for a example server</Typography>
+            <Typography>This is a server description for an example server</Typography>
           </CardContent>
           <CardActions>
             <Button variant='text'>Enter</Button>
