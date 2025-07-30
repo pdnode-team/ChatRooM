@@ -19,6 +19,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Typography } from "@mui/material";
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
@@ -67,7 +68,13 @@ export default function Home() {
         </Tooltip>
       </div>
       <div className='login-container'>
-        <LoginIcon/>
+        <div className="login-content">
+          <LoginIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
+          <Typography variant="h4">Login to your account</Typography>
+          <TextField label="Username" variant="filled" type="username" sx={{width: '70%',marginTop: '10px'}}/>
+          <TextField label="Password" variant="filled" type="password" sx={{width: '70%',marginTop: '10px'}}/>
+          <Button variant="contained" sx={{width: '40%', height: '50px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
+        </div>
       </div>
     </ThemeProvider>
   );
