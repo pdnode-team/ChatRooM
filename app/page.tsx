@@ -12,6 +12,11 @@ import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
   interface Palette {
@@ -40,7 +45,7 @@ const theme = createTheme({
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}> {/*使组件识别自定义主题*/}
+    <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
       <title>ChatRooM V2</title>
       <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
