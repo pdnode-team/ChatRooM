@@ -71,7 +71,7 @@ export default function Home() {
         <div className='menu-home-ph-container'/>
         <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
           <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '28px'}}/>
-          <Tooltip title="Add servers">
+          <Tooltip title="Search in joined servers">
             <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
           </Tooltip>
         </Box>
