@@ -1,4 +1,5 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
+
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Box from '@mui/material/Box';
@@ -39,7 +40,7 @@ const theme = createTheme({
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}> {/*使组件识别自定义主题*/}
       <title>ChatRooM V2</title>
       <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
