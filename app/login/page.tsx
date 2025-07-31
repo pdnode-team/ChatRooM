@@ -13,7 +13,6 @@ import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 import LoginIcon from '@mui/icons-material/Login';
 import PasswordIcon from '@mui/icons-material/Lock';
-import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import UsernameIcon from '@mui/icons-material/Person';

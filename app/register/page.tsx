@@ -11,12 +11,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
-import PasswordIcon from '@mui/icons-material/Lock';
 import RegIcon from '@mui/icons-material/HowToReg';
-import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
-import UsernameIcon from '@mui/icons-material/Person';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -76,14 +73,8 @@ export default function Home() {
           <Typography variant="h4">Register your account</Typography>
         </div>
         <div className="reg-content">
-          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: '10px'}}>
-            <UsernameIcon sx={{fontSize: '35px', marginRight: '10px'}}/>
-            <TextField label="Username" variant="filled" type="username" sx={{width: '60%'}}/>
-          </Box>
-          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: '10px'}}>
-            <PasswordIcon sx={{fontSize: '35px', marginRight: '10px'}}/>
-            <TextField label="Password" variant="filled" type="password" sx={{width: '60%'}}/>
-          </Box>
+          <TextField label="Username" variant="filled" type="username" sx={{width: '60%'}}/>
+          <TextField label="Password" variant="filled" type="password" sx={{width: '60%'}}/>
           <Button variant="contained" sx={{width: '40%', height: '50px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
           <Typography sx={{marginTop: '10px'}}>Haven&apos;t got an account yet? <Link href="/register" style={{color: '#006fdeff', textDecoration: 'underline'}}>Register</Link> now!</Typography>
         </div>
