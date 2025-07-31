@@ -18,14 +18,14 @@ class Command:
             lackerror()
             return
         Inf=json.loads(Mf.readtext("./data/User/.inf"))
-        def all():
+        def all(args=None):
             tmp=0
             for sj in Inf:
                 if Inf[sj]["Valid"]==True:
                     tmp+=1
                     print(f"sj  {Inf[sj]["PG"]}") # PG:Permission groups
             print(f"\ntotal:{tmp} valid user.")
-        def getinf():
+        def getinf(args):
             if len(args) == 1:
                 lackerror()
                 return
@@ -36,7 +36,7 @@ class Command:
                 print(f"InGroup    :{json.loads(Mf.readtext(f"./data/User/{args[1]}/.group"))}")
             else:
                 print(Fore.YELLOW+f"[user] Error: Not found {args[1]}.")
-        def audit():
+        def audit(args=None):
             if config['application'] != "audit":
                 print(Fore.YELLOW+"[Audit] Disable audit mode.")
                 return
@@ -53,15 +53,32 @@ class Command:
                 else:
                     audiq2.append(i)
             Mf.writetext("./data/.audit",audiq2)
-        def Register():
+        def verify(args):
+            if config['application'] != "verify":
+                print(Fore.YELLOW+"[Verify] Disable verify mode.")
+                return
+            if Mf.exists("./data/.verify"):
+                print(f"[Verify] Verify:{Mf.readtext('./data/.verify',encoding='utf-8')}")
+            if len(args) ==0:
+                return
+            if args[0]=="set":
+                if len(args) < 2:
+                    print(Fore.RED+"[Verify] Error: No verify code.")
+                    return
+                verify_code=args[1]
+                Mf.writetext("./data/.verify",verify_code)
+                print(Fore.GREEN+"[Verify] Set verify code successfully.")
+            return
+        def Register(agrs=None):
             RegInf={}
             RegInf['Name']=input("UserName:")
             RegInf['password']=input("Password:")
             handle.Reg(Mf,RegInf)
             
-        Clists={"all":all,"getinf":getinf,"audit":audit,"register":Register}
+        Clists={"all":all,"getinf":getinf,"audit":audit,"register":Register,"verify":verify}
+        argss=args[1:]
         if args[0] in Clists:
-            Clists[args[0]]()
+            Clists[args[0]](argss)
         else:
             print(Fore.RED+f"[user] Error: Invalid \'{args[0]}\'")
         

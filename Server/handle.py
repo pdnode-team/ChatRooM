@@ -105,6 +105,29 @@ def register():
     else:
         return jsonify({"message":"ErRoR:POST"}),405
 
+@app.route('/register/<verify>', methods=['POST'])
+def register_verity(verify):
+    if request.method == 'POST':
+        if Sfg['application'] != 'verify':
+            return jsonify({"message":"Register: Invalid mode."}),405
+        if not Mf.exists(f"./data/.verify"):
+            return jsonify({"message":"Register: No verify."}),501
+        toverify = Mf.readtext("./data/.verify", encoding='utf-8')
+        if verify != toverify:
+            return jsonify({"message":"Register: Invalid verify."}),406
+        if not('username' in request.form and 'password' in request.form):
+            return jsonify({"message":"Register failed:Invalid."}),417
+        username = request.form['username']
+        pwd = request.form['password']
+        RegInf = {"Name": username, "password": pwd}    
+        if username in Users:
+            return jsonify({"message":"Register failed:Name Used."}),406
+        Reg(Mf, RegInf)
+        Mf.removetext("./data/.verify")
+        return jsonify({"message":"[Register] Succeed."}),200
+    else:
+        return jsonify({"message":"ErRoR:POST"}),405
+
 def run(__Mf : OSFS,__CBack):
     global Mf, Cback, Sfg, Users
     Mf=__Mf
