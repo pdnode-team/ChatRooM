@@ -1,20 +1,17 @@
 'use client'; //DO NOT TOUCH THIS OR THE WHOLE PROJECT WILL BE MESSED UP
 
-import "./globals.css";
+import "../globals.css";
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { CardActions, Typography } from '@mui/material';
 import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
-import SearchIcon from '@mui/icons-material/Search';
-import ServerIcon from '@mui/icons-material/Dns';
+import RegIcon from '@mui/icons-material/HowToReg';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -22,6 +19,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Typography } from "@mui/material";
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
@@ -49,45 +47,37 @@ const theme = createTheme({
   },
 });
 
-const serverCard = (
-  <React.Fragment>
-    <CardContent>
-      <Typography variant='h5'>Example server</Typography>
-      <Typography>This is a server description for an example server.</Typography>
-      <div style={{height: '3.7vh', minHeight: '35px'}}/>
-    </CardContent>
-    <CardActions>
-      <Button variant='text'>Enter</Button>
-    </CardActions>
-  </React.Fragment>
-)
-
 export default function Home() {
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
       <title>ChatRooM V2</title>
       <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
-        <div className='menu-home-ph-container'/>
-        <Box sx={{display: 'flex', alignItems: 'flex-end', marginRight: '10px'}}>
-          <SearchIcon sx={{color: "#ffffff", marginRight: '10px', marginBottom: '1.6vh', fontSize: '28px'}}/>
-          <Tooltip title="Search in joined servers">
-            <TextField color='white' id="joined-server-search" label="Search" variant="filled"/>
-          </Tooltip>
-        </Box>
+        <div className='menu-home-ph-container' style={{width: '81vw'}}/>
         <Tooltip title="Add Servers">
           <IconButton><AddIcon sx={{color: "#ffffff"}}/></IconButton>
         </Tooltip>
         <Tooltip title="Account">
-          <IconButton sx={{marginRight: '10px'}} href='/login'><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+          <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
         </Tooltip>
       </div>
-      <div className='home-my-server-list-container'>
-        <Box sx={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-          <ServerIcon sx={{fontSize: '38px'}}/>
-          <a style={{fontSize: '38px', marginLeft: '10px'}}>My Server</a>
-        </Box>
-        <Card className='my-server-card' variant='outlined' sx={{backgroundColor: '#fcfcfcff'}}>{serverCard}</Card>
+      <Box className="back-box">
+        <Tooltip title="Back to Login">
+          <IconButton href="/login"><ArrowBackIcon sx={{fontSize: '35px'}}/></IconButton>
+        </Tooltip>
+        <Typography fontSize={'20px'}>Login</Typography>
+      </Box>
+      <div className='reg-container'>
+        <div className="reg-header">
+          <RegIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
+          <Typography variant="h4">Register your account</Typography>
+        </div>
+        <div className="reg-content">
+          <TextField label="Username" variant="filled" type="username" sx={{width: '60%'}}/>
+          <TextField label="Password" variant="filled" type="password" sx={{width: '60%'}}/>
+          <Button variant="contained" sx={{width: '40%', height: '50px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
+          <Typography sx={{marginTop: '10px'}}>Haven&apos;t got an account yet? <Link href="/register" style={{color: '#006fdeff', textDecoration: 'underline'}}>Register</Link> now!</Typography>
+        </div>
       </div>
     </ThemeProvider>
   );
