@@ -65,10 +65,10 @@ export default function Home() {
         </Tooltip>
       </div>
       <Box className="back-box">
-        <Tooltip title="Back to Home">
+        <Tooltip title="Back to Login">
           <IconButton href="/"><ArrowBackIcon sx={{fontSize: '35px'}}/></IconButton>
         </Tooltip>
-        <Typography fontSize={'20px'}>Home</Typography>
+        <Typography fontSize={'20px'}>Login</Typography>
       </Box>
       <div className='login-container'>
         <div className="login-content">
