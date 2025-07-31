@@ -11,8 +11,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
-import LoginIcon from '@mui/icons-material/Login';
 import PasswordIcon from '@mui/icons-material/Lock';
+import RegIcon from '@mui/icons-material/HowToReg';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
@@ -66,14 +66,16 @@ export default function Home() {
       </div>
       <Box className="back-box">
         <Tooltip title="Back to Login">
-          <IconButton href="/"><ArrowBackIcon sx={{fontSize: '35px'}}/></IconButton>
+          <IconButton href="/login"><ArrowBackIcon sx={{fontSize: '35px'}}/></IconButton>
         </Tooltip>
         <Typography fontSize={'20px'}>Login</Typography>
       </Box>
-      <div className='login-container'>
-        <div className="login-content">
-          <LoginIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
-          <Typography variant="h4">Login to your account</Typography>
+      <div className='reg-container'>
+        <div className="reg-header">
+          <RegIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
+          <Typography variant="h4">Register your account</Typography>
+        </div>
+        <div className="reg-content">
           <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: '10px'}}>
             <UsernameIcon sx={{fontSize: '35px', marginRight: '10px'}}/>
             <TextField label="Username" variant="filled" type="username" sx={{width: '60%'}}/>

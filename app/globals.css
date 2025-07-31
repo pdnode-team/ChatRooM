@@ -87,3 +87,26 @@ body {
   border-radius: 100px;
   outline: #b4b4b4 solid 1px;
 }
+
+.reg-header {}
+
+.reg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-content {
+  height: 60vh;
+  min-height: 545px;
+  width: 30vw;
+  min-width: 500px;
+  border-radius: 10px;
+  background: #fcfcfcff;
+  outline: #b4b4b4 solid 1px;
+  margin-top: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px
+}
