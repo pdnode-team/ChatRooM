@@ -81,7 +81,7 @@ export default function Home() {
             <PasswordIcon sx={{fontSize: '30px', marginRight: '10px'}}/>
             <TextField label="Password" variant="filled" type="password" sx={{width: '60%'}}/>
           </Box>
-          <Button variant="contained" sx={{width: '40%', height: '50px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
+          <Button variant="contained" sx={{width: '35%', height: '48px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
           <Typography sx={{marginTop: '10px'}}>Haven&apos;t got an account yet? <Link href="/register" style={{color: '#006fdeff', textDecoration: 'underline'}}>Create an account.</Link></Typography>
         </div>
       </div>
