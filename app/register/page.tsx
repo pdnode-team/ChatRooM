@@ -67,16 +67,17 @@ export default function Home() {
         </Tooltip>
         <Typography fontSize={'20px'}>Login</Typography>
       </Box>
-      <div className='reg-container'>
-        <Box className="reg-header">
-          <RegIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
-          <Typography variant="h4">Create an account</Typography>
-        </Box>
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
-          <TextField label="Username" variant="filled" type="username" sx={{width: '70%'}}/>
-          <TextField label="Password" variant="filled" type="password" sx={{width: '70%'}}/>
-          <Button variant="contained" sx={{width: '40%', height: '50px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
-          <Typography sx={{marginTop: '10px'}}>Haven&apos;t got an account yet? <Link href="/register" style={{color: '#006fdeff', textDecoration: 'underline'}}>Register</Link> now!</Typography>
+      <div className="reg-container">
+        <div className='reg-content'>
+          <Box className="reg-header">
+            <RegIcon sx={{color: "#1976d2", fontSize: '65px'}}/>
+            <Typography variant="h4">Create an account</Typography>
+            <Typography marginTop={'10px'}>Enter your Email address</Typography>
+          </Box>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', marginLeft: '100px', width: '50%'}}>
+            <TextField label="Email address" variant="outlined" sx={{width: '90%'}}/>
+            <Button variant="contained" sx={{marginTop: '15px', marginLeft: "80%", boxShadow: 'none', borderRadius: "100px"}}>Next</Button>
+          </div>
         </div>
       </div>
     </ThemeProvider>

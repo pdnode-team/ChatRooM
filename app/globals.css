@@ -88,24 +88,26 @@ body {
   outline: #b4b4b4 solid 1px;
 }
 
-.reg-header {}
+.reg-header {
+  margin-bottom: 100px;
+}
 
-.reg-container {
+.reg-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  min-height: 545px;
-  width: 60vw;
+  height: 40vh;
+  min-height: 355px;
+  width: 55vw;
   min-width: 500px;
   border-radius: 10px;
   background: #fcfcfcff;
   outline: #b4b4b4 solid 1px;
+  margin-top: 12vh;
 }
 
-/*.reg-content {    !deprecated!
+.reg-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px
-}*/
+}
