@@ -53,12 +53,9 @@ export default function Home() {
       <title>ChatRooM V2</title>
       <div className='menu-home'>
         <Link href="/"><Image src="/icon.png" className='logo-icon' width="207" height="50" alt='ChatRooM Logo' priority/></Link>
-        <div className='menu-home-ph-container' style={{width: '81vw'}}/>
-        <Tooltip title="Add Servers">
-          <IconButton><AddIcon sx={{color: "#ffffff"}}/></IconButton>
-        </Tooltip>
+        <div className='menu-home-ph-container' style={{width: '83.5vw'}}/>
         <Tooltip title="Account">
-          <IconButton sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
+          <IconButton href="/login" sx={{marginRight: '10px'}}><AccountCircleIcon sx={{color: "#ffffff"}}/></IconButton>
         </Tooltip>
       </div>
       <Box className="back-box">
