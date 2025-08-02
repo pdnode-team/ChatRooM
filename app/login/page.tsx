@@ -70,11 +70,11 @@ export default function Home() {
           <LoginIcon sx={{color: "#1976d2", fontSize: '65px', marginTop: '70px'}}/>
           <Typography variant="h4">Login to your account</Typography>
           <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: '10px'}}>
-            <UsernameIcon sx={{fontSize: '30px', marginRight: '10px'}}/>
+            <UsernameIcon sx={{color: "#747474", fontSize: '30px', marginRight: '10px'}}/>
             <TextField label="Username" variant="filled" type="username" sx={{width: '60%'}}/>
           </Box>
           <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: '10px'}}>
-            <PasswordIcon sx={{fontSize: '30px', marginRight: '10px'}}/>
+            <PasswordIcon sx={{color: "#747474", fontSize: '30px', marginRight: '10px'}}/>
             <TextField label="Password" variant="filled" type="password" sx={{width: '60%'}}/>
           </Box>
           <Button variant="contained" sx={{width: '33%', height: '48px', marginTop: '15px', boxShadow: 'none', fontSize: '15px'}}>Login</Button>
