@@ -52,6 +52,17 @@ const theme = createTheme({
 });
 
 export default function Login() {
+  //使用 useRouter 钩子来获取路由对象,以便在登录成功后跳转
+  const router = useRouter();
+  const [formData, setFormData] = useState({   //初始化表单数据
+    username: '',
+    password: '',
+    showPassword: false
+  });
+  const [loading, setLoading] = useState(false); //加载状态
+  const [error, setError] = useState(''); //错误信息
+  const [success, setSuccess] = useState(''); //登录成功信息
+
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
       <title>ChatRooM V2</title>
