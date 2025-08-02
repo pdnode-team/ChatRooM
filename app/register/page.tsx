@@ -3,7 +3,6 @@
 import "../globals.css";
 import * as React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
