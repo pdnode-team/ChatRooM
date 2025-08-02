@@ -111,6 +111,11 @@ export default function Login() {
     }
   }
 
+  const handleCloseAlert = () => {
+    setError(''); //清除错误信息
+    setSuccess(''); //清除成功信息
+  };
+
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
       <title>ChatRooM V2</title>
