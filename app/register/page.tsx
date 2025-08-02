@@ -13,12 +13,12 @@ import Link from 'next/link';
 import RegIcon from '@mui/icons-material/HowToReg';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
+import Typography from "@mui/material/Typography";
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Typography } from "@mui/material";
 
 //别管这是干啥的，把要添加的新颜色写在这里面就行
 declare module '@mui/material/styles' {
