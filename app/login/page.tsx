@@ -51,7 +51,7 @@ const theme = createTheme({
   },
 });
 
-export default function Home() {
+export default function Login() {
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
       <title>ChatRooM V2</title>
