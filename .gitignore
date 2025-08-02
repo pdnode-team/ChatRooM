@@ -9,11 +9,9 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-Server/data/*
-Server/log/*
-Server/permissions/*
 Server/.Sconfig
 Server/__pycache__
+Server/chatroom.db
 
 # testing
 /coverage
