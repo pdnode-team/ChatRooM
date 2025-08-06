@@ -140,7 +140,8 @@ def run(__Mf, __CBack):
     global Cback, Sfg
     Cback = __CBack
     
-    Sfg = json.loads(__Mf.readtext("./.Sconfig"))
+    with open("./.sconfig", "r", encoding="utf-8") as f:
+        Sfg = json.loads(f.read())
     
     Base.metadata.create_all(engine)
     app.run(debug=False, host=Sfg['ip'], port=Sfg['port'])

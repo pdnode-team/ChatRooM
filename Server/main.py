@@ -30,10 +30,10 @@ class Command:
             print(f"\ntotal:{tmp} valid user.")
 
         def getinf(args):
-            if len(args) == 1:
+            if len(args) < 1:
                 lackerror()
                 return
-            username = args[1]
+            username = args[0]
             user = db_session.query(User).filter_by(name=username).first()
             if user:
                 print(Fore.GREEN + f"[user] Information for user:{username}")
