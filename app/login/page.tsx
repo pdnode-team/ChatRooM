@@ -61,7 +61,60 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false); //加载状态
   const [error, setError] = useState(''); //错误信息
-  const [success, setSuccess] = useState(''); //登录成功信息
+  const [success, setSuccess] = useState(''); //成功信息
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value })); //更新表单
+  };
+
+  const handleShowPassword = () => {
+    setFormData(prev => ({ ...prev, showPassword: !prev.showPassword }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); //阻止默认提交行为
+    setLoading(true); //设置加载状态为 true
+    setError(''); //清除之前的错误信息
+    setSuccess(''); //清除之前的成功信息
+
+    try {
+      const response = await fetch('http://localhost:3030/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password
+        })
+      });
+
+      if (response.ok) {
+        setSuccess('登陆成功'); //设置成功信息
+        //登录成功后跳转到首页
+        setTimeout(() => {
+          router.push('/');
+        }, 1500); //延时1.5秒
+      }
+      else {
+        const errorData = await response.json();
+        setError(errorData.message); //设置错误信息
+      }
+    }
+    catch (err) {
+      console.error('Login error:', err);
+      setError('登录失败，请稍后再试。'); //设置错误信息
+    }
+    finally {
+      setLoading(false); //无论成功或失败都将加载状态设置为 false
+    }
+  }
+
+  const handleCloseAlert = () => {
+    setError(''); //清除错误信息
+    setSuccess(''); //清除成功信息
+  };
 
   return (
     <ThemeProvider theme={theme}> {/*明确使用自定义主题*/}
